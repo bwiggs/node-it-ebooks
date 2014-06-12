@@ -2,10 +2,9 @@ http = require 'http'
 
 class ItEbooks
 
-    #baseUrl: 'http://it-ebooks-api.info/v1'
-    baseUrl: 'http://localhost:8000/it-ebooks-api.info/v1/'
+    baseUrl: 'http://it-ebooks-api.info/v1'
 
-    _get: (path, callback) ->
+    get = (path, callback) ->
         requestString = @baseUrl + path
         console.log 'GET ' + requestString
         http.get requestString, (res) ->
@@ -18,6 +17,10 @@ class ItEbooks
     search: (query, callback) ->
         throw new Error 'must provide a search query' if !query
         throw new Error 'must provide a callback' if !callback
-        @_get '/search/' + query, callback
+        @get '/search/' + query, callback
+
+    book: (bookId, callback) ->
+        throw new Error 'must provide a book id' if !bookId
+        @get '/book/' + bookId, callback
 
 module.exports = new ItEbooks

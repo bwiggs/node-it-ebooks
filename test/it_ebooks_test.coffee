@@ -1,25 +1,33 @@
 assert = require "assert"
 ItEbooks = require '../lib/it_ebooks'
 
-describe 'ItEbooks Internals', ->
+# for testing purposes so we don't hit the api
+ItEbooks.baseUrl = 'http://localhost:8000/it-ebooks-api.info/v1/'
+
+describe 'ItEbooks', ->
 
     describe '.baseUrl', ->
-        
+
         it 'exists', ->
             assert ItEbooks.baseUrl != undefined
 
-    describe '._get', ->
-        
-        it 'exists', ->
-            assert ItEbooks._get != undefined
 
-describe 'ItEbooks API', ->
-    
+    describe '.book', ->
+
+        it 'exists', ->
+            assert ItEbooks.book != undefined
+
+        it 'throws and Error when there is no book id', ->
+            assert.throws ->
+                ItEbooks.book()
+            ,Error
+
+
     describe '.search', ->
-        
+
         it 'exists', ->
             assert ItEbooks.search != undefined
-        
+
         it 'throws and Error when there is no search query', ->
             assert.throws ->
                 ItEbooks.search()

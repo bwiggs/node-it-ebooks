@@ -1,1 +1,1 @@
-module.exports = require('./lib/it-ebooks');
+module.exports = require('./lib/it_ebooks');
