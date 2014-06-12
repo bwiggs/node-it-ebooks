@@ -4,9 +4,9 @@ class ItEbooks
 
     baseUrl: 'http://it-ebooks-api.info/v1'
 
-    get = (path, callback) ->
+    get: (path, callback) ->
         requestString = @baseUrl + path
-        console.log 'GET ' + requestString
+        #console.log 'GET ' + requestString
         http.get requestString, (res) ->
             body = ''
             res.on 'data', (chunk) ->

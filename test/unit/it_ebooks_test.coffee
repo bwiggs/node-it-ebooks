@@ -1,5 +1,5 @@
 assert = require "assert"
-ItEbooks = require '../lib/it_ebooks'
+ItEbooks = require '../../lib/it_ebooks'
 
 # for testing purposes so we don't hit the api
 ItEbooks.baseUrl = 'http://localhost:8000/it-ebooks-api.info/v1/'
